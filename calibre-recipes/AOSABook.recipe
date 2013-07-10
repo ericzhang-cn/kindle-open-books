@@ -1,0 +1,41 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class AOSABook(BasicNewsRecipe):
+
+    title = 'The Architecture of Open Source Applications'
+    __author__  = 'aosabook'
+    description = 'In these two books, the authors of four dozen open source applications explain how their software is structured, and why. What are each program\'s major components? How do they interact? And what did their builders learn during their development? In answering these questions, the contributors to these books provide unique insights into how they think.'
+    cover_url = 'http://www.aosabook.org/images/cover1.jpg'
+
+    url_prefix = 'http://www.aosabook.org/en/'
+    no_stylesheets = True
+    remove_tags = [{ 'class': 'footer' }]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def generate_vol(self, table):
+        articles = []
+
+        for link in table.findAll('a'):
+            if '#' in link['href']:
+                continue
+
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        return articles
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + 'index.html')
+
+        tables = soup.findAll('table')
+        articles_vol1 = self.generate_vol(tables[1])
+        articles_vol2 = self.generate_vol(tables[0])
+
+        volumes = [('Volume1', articles_vol1), ('Volume2', articles_vol2)]
+
+        return volumes
