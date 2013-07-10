@@ -2,12 +2,11 @@
 
 限于很多开放书籍的license，这个项目不包含生成的电子书，只包含相关的生成脚本。
 
-# Calibre recipes
-calibre-recipes目录下是一些[Calibre](http://calibre-ebook.com/)的recipes文件。
+# 关于calibre recipes
 
-Calibre是一个免费的电子书管理工具，可以通过抓取RSS或网页页面内容生成电子书，其中抓取过程可以通过recipe文件（实际是一个Python脚本）自定义。具体recipe文件的编写方式见[文档](http://manual.calibre-ebook.com/news.html)。
+[Calibre](http://calibre-ebook.com/)是一个免费的电子书管理工具，可以通过抓取RSS或网页页面内容生成电子书，其中抓取过程可以通过recipe文件（实际是一个Python脚本）自定义。具体recipe文件的编写方式见[文档](http://manual.calibre-ebook.com/news.html)。
 
-# Recipe文件索引
+calibre-recipes目录下是一些recipe文件。目录如下：
 
 + AOSABook.recipe - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
 
