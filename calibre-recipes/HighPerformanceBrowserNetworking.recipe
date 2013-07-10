@@ -9,7 +9,7 @@ class HighPerformanceBrowserNetworking(BasicNewsRecipe):
 
     url_prefix = 'http://chimera.labs.oreilly.com/books/1230000000545/'
     no_stylesheets = True
-    keep_only_tags = [{ 'class': 'titlepage' }, { 'class': 'sect1' }]
+    keep_only_tags = [{ 'class': 'chapter' }]
 
     def get_title(self, link):
         return link.contents[0].strip()
@@ -22,6 +22,9 @@ class HighPerformanceBrowserNetworking(BasicNewsRecipe):
         articles = []
         for link in div.findAll('a'):
             if '#' in link['href']:
+                continue
+
+            if not 'ch' in link['href']:
                 continue
 
             title = self.get_title(link) 
