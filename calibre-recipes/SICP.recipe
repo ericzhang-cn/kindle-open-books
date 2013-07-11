@@ -1,0 +1,38 @@
+import re
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class SICP(BasicNewsRecipe):
+
+    title = 'Structure and Interpretation of Computer Programs'
+    __author__  = 'Harold Abelson and Gerald Jay Sussman with Julie Sussman'
+    description = ''
+    cover_url = 'http://mitpress.mit.edu/sicp/full-text/book/cover.jpg'
+
+    url_prefix = 'http://mitpress.mit.edu/sicp/full-text/book/'
+    no_stylesheets = True
+    remove_tags = [{ 'class': 'navigation' }]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup('http://mitpress.mit.edu/sicp/full-text/book/book-Z-H-4.html')
+
+        articles = []
+        for link in soup.findAll('a'):
+            if not (link.has_key('name') and link.has_key('href')):
+                continue
+
+            pattern = re.compile(r'^.*\d\.\d\.\d$')
+            if pattern.match(link['href']):
+                continue
+            
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [('SICP', articles)]
+
+        return ans
