@@ -1,0 +1,32 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class A_Mathematical_Theory_of_Communication(BasicNewsRecipe):
+
+    title = '通信的数学理论'
+    __author__  = '香农'
+    description = ''
+    cover_url = 'http://www.ituring.com.cn/bookcover/1185.935.jpg'
+
+    url_prefix = 'http://www.ituring.com.cn/'
+    no_stylesheets = True
+    keep_only_tags = [{ 'id': 'question-header' }, { 'class': 'post-text' }];
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup('http://www.ituring.com.cn/minibook/611')
+
+        div = soup.find('div', { 'class': 'minibook-list' })
+
+        articles = []
+        for link in div.findAll('a', { 'class': 'question-hyperlink' }):
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [('A_Mathematical_Theory_of_Communication', articles)]
+
+        return ans

@@ -1,6 +1,6 @@
 from calibre.web.feeds.recipes import BasicNewsRecipe
 
-class HighPerformanceBrowserNetworking(BasicNewsRecipe):
+class High_Performance_Browser_Networking(BasicNewsRecipe):
 
     title = 'High Performance Browser Networking'
     __author__  = 'Ilya Grigorik'

@@ -9,7 +9,8 @@
 calibre-recipes目录下是一些recipe文件。目录如下：
 
 + AOSABook.recipe - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
-+ HighPerformanceBrowserNetworking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
++ High\_Performance\_Browser\_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
++ A\_Mathematical\_Theory\_of\_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
 
 # 使用方法
 
