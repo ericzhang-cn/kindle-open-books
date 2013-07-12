@@ -8,17 +8,10 @@
 
 calibre-recipes目录下是一些recipe文件。
 
-## books
-
 + AOSABook.recipe - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
 + High\_Performance\_Browser\_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
 + A\_Mathematical\_Theory\_of\_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
 + SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
-
-## sites
-
-+ 36Kr.recipe - [36氪](http://www.36kr.com/)
-+ ZhiHuDaily.recipe - [知乎每日精选](http://www.zhihu.com/)
 
 # 使用方法
 
