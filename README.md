@@ -18,6 +18,7 @@ calibre-recipes目录下是一些recipe文件。
 ## sites
 
 + 36Kr.recipe - [36氪](http://www.36kr.com/)
++ ZhiHuDaily.recipe - [知乎每日精选](http://www.zhihu.com/)
 
 # 使用方法
 
