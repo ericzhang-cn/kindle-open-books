@@ -30,3 +30,14 @@ class A_Mathematical_Theory_of_Communication(BasicNewsRecipe):
         ans = [('A_Mathematical_Theory_of_Communication', articles)]
 
         return ans
+
+    def postprocess_html(self, soup, first_fetch):
+        first = True
+
+        for text in soup.findAll('div', { 'class': 'post-text' }):
+            if first:
+                first = False
+            else:
+                text.extract()
+
+        return soup
