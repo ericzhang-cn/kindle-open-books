@@ -12,6 +12,7 @@ calibre-recipes目录下是一些recipe文件。
 + High\_Performance\_Browser\_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
 + A\_Mathematical\_Theory\_of\_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
 + SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
++ AngularJS\_Tutorial\_Cn - [AngularJS入门教程](http://www.ituring.com.cn/minibook/303)
 
 # 使用方法
 
