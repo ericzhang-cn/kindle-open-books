@@ -4,7 +4,6 @@ from calibre.web.feeds.recipes import BasicNewsRecipe
 class SICP(BasicNewsRecipe):
 
     title = 'Structure and Interpretation of Computer Programs'
-    __author__  = 'Harold Abelson and Gerald Jay Sussman with Julie Sussman'
     description = ''
     cover_url = 'http://mitpress.mit.edu/sicp/full-text/book/cover.jpg'
 

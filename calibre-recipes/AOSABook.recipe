@@ -3,7 +3,6 @@ from calibre.web.feeds.recipes import BasicNewsRecipe
 class AOSABook(BasicNewsRecipe):
 
     title = 'The Architecture of Open Source Applications'
-    __author__  = 'aosabook'
     description = 'In these two books, the authors of four dozen open source applications explain how their software is structured, and why. What are each program\'s major components? How do they interact? And what did their builders learn during their development? In answering these questions, the contributors to these books provide unique insights into how they think.'
     cover_url = 'http://www.aosabook.org/images/cover1.jpg'
 
