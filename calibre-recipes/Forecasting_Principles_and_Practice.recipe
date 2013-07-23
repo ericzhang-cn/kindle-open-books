@@ -1,0 +1,29 @@
+import re
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Forecasting_Principles_and_Practice(BasicNewsRecipe):
+
+    title = 'Forecasting: principles and practice'
+    description = ''
+
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'type-page' }];
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup('http://otexts.com/fpp/')
+
+        articles = []
+        for li in soup.findAll('li', { 'class': re.compile('^page_item') }):
+            link = li.find('a')
+            title = self.get_title(link) 
+            url = link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [('Forecasting: principles and practice', articles)]
+
+        return ans
