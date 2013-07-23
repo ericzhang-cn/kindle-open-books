@@ -1,5 +1,6 @@
 import re
 from calibre.web.feeds.recipes import BasicNewsRecipe
+from calibre.ebooks.BeautifulSoup import NavigableString
 
 class Forecasting_Principles_and_Practice(BasicNewsRecipe):
 
@@ -7,10 +8,17 @@ class Forecasting_Principles_and_Practice(BasicNewsRecipe):
     description = ''
 
     no_stylesheets = True
-    keep_only_tags = [{ 'class': 'type-page' }];
+    keep_only_tags = [{ 'id': re.compile('^post-') }]
 
     def get_title(self, link):
-        return link.contents[0].strip()
+        title = []
+        for ele in link.contents:
+            if isinstance(ele, NavigableString):
+                title.append(ele)
+            else:
+                title.append(ele.contents[0])
+
+        return ' '.join(title)
 
     def parse_index(self):
         soup = self.index_to_soup('http://otexts.com/fpp/')
