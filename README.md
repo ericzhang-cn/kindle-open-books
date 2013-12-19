@@ -14,6 +14,7 @@ calibre-recipes目录下是一些recipe文件。
 + SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
 + AngularJS\_Tutorial\_Cn.recipe - [AngularJS入门教程](http://www.ituring.com.cn/minibook/303)
 + Forecasting\_Principles\_and\_Practice.recipe - [Forecasting Principles and Practice](http://otexts.com/fpp/)
++ Computer\_Science\_from\_the\_Bottom\_Up.recipe - [Computer Science from the Bottom Up](http://www.bottomupcs.com/index.html)
 
 # 使用方法
 

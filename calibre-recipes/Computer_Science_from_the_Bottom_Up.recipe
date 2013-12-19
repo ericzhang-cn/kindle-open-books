@@ -1,0 +1,35 @@
+import re
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class CSBU(BasicNewsRecipe):
+
+    title = 'Computer Science from the Bottom Up'
+    description = 'Computer Science from the Bottom Up — A free, online book designed to teach computer science from the bottom end up. Topics covered include binary and binary logic, operating systems internals, toolchain fundamentals and system library fundamentals'
+
+    url_prefix = 'http://www.bottomupcs.com/'
+    no_stylesheets = True
+    remove_tags = [{'name':'header'}, {'name':'footer'}, {'name':'div', 'class':'toc'}]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup('http://www.bottomupcs.com/index.html')
+
+        toc = soup.find('div', {'class':'toc'})
+
+        articles = []
+        for link in toc.findAll('a'):
+            pattern = re.compile(r'^.*\.html$')
+            if not pattern.match(link['href']):
+                continue
+            
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [('Computer Science from the Bottom Up', articles)]
+
+        return ans
