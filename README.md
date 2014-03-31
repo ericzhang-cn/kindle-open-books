@@ -19,6 +19,8 @@ List of Recipes in `calibre-recipes` Folder
 + Designing\_Evolvable\_Web\_APIs\_with\_ASP\_NET - [Designing Evolvable Web APIs with ASP.NET](http://chimera.labs.oreilly.com/books/1234000001708)
 + Test\_Driven\_Web\_Development\_with\_Python - [Test-Driven Web Development with Python](http://chimera.labs.oreilly.com/books/1234000000754)
 + Mastering\_Perl.recipe - [Mastering Perl](http://chimera.labs.oreilly.com/books/1234000001527)
++ Introduction_to_Linux.recipe - [Introduction to Linux](http://tldp.org/LDP/intro-linux/html/)
++ Python_Cookbook.recipe - [Python Cookbook](http://chimera.labs.oreilly.com/books/1230000000393)
 
 ## Simplified Chinese
 + A\_Mathematical\_Theory\_of\_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
