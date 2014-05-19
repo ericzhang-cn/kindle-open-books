@@ -1,0 +1,43 @@
+from calibre.web.feeds.news import BasicNewsRecipe
+
+class LearnPythonTheHardWay(BasicNewsRecipe):
+    title = 'learn_python_the_hard_way'
+    __author__ = 'lord63'
+    description = 'learn_python_the_hard_way'
+    timefmt = '[%Y-%m-%d]'
+    no_stylesheets = True
+    url_prefix = 'http://learnpythonthehardway.org/book/'
+    keep_only_tags = [{'class': 'large-12 columns'}]
+
+
+
+    def get_title(self, tag):
+        return tag.a.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + 'index.html')
+        toc = soup.find('ul', 'simple')
+
+        articles = []
+        for tag in toc.findAll('li'):
+            title = self.get_title(tag)
+            url = self.url_prefix + tag.a['href']
+            article = {'title': title, 'url': url}
+            articles.append(article)
+        ans = [('learn_python_the_hard_way', articles)]
+
+        return ans
+
+    def postprocess_html(self, soup, first_fetch):
+        first = True
+
+        for text in soup.findAll('div', {'class': 'large-12 columns'}):
+            if first:
+                first = False
+            else:
+                text.extract()
+
+        return soup
+
+
+
