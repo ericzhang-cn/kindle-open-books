@@ -10,9 +10,9 @@ class LearnPythonTheHardWay(BasicNewsRecipe):
     keep_only_tags = [{'class': 'large-12 columns'}]
 
 
-
     def get_title(self, tag):
         return tag.a.contents[0].strip()
+
 
     def parse_index(self):
         soup = self.index_to_soup(self.url_prefix + 'index.html')
@@ -25,18 +25,16 @@ class LearnPythonTheHardWay(BasicNewsRecipe):
             article = {'title': title, 'url': url}
             articles.append(article)
         ans = [('learn_python_the_hard_way', articles)]
-
         return ans
+
 
     def postprocess_html(self, soup, first_fetch):
         first = True
-
         for text in soup.findAll('div', {'class': 'large-12 columns'}):
             if first:
                 first = False
             else:
                 text.extract()
-
         return soup
 
 
