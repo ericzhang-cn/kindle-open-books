@@ -2,7 +2,7 @@ from calibre.web.feeds.news import BasicNewsRecipe
 
 class IntroductionToLinux(BasicNewsRecipe):
     title = 'Introduction_to_Linux'
-    __author__ = 'lord63'
+    __author__ = 'soooldier & lord63'
     description = 'Introduction_to_Linux'
     timefmt = '[%Y-%m-%d]'
     no_stylesheets = True
