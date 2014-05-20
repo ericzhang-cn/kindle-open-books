@@ -10,21 +10,24 @@ List of Recipes in `calibre-recipes` Folder
 
 ## English
 + AOSABook.recipe - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
-+ High\_Performance\_Browser\_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
-+ SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
-+ Forecasting\_Principles\_and\_Practice.recipe - [Forecasting Principles and Practice](http://otexts.com/fpp/)
-+ Computer\_Science\_from\_the\_Bottom\_Up.recipe - [Computer Science from the Bottom Up](http://www.bottomupcs.com/index.html)
-+ Git\_Pocket\_Guide.recipe - [Git Pocket Guide](http://chimera.labs.oreilly.com/books/1230000000561)
-+ Programming\_JavaScript\_Applications.recipe - [Programming JavaScript Applications](http://chimera.labs.oreilly.com/books/1234000000262)
-+ Designing\_Evolvable\_Web\_APIs\_with\_ASP\_NET - [Designing Evolvable Web APIs with ASP.NET](http://chimera.labs.oreilly.com/books/1234000001708)
-+ Test\_Driven\_Web\_Development\_with\_Python - [Test-Driven Web Development with Python](http://chimera.labs.oreilly.com/books/1234000000754)
-+ Mastering\_Perl.recipe - [Mastering Perl](http://chimera.labs.oreilly.com/books/1234000001527)
++ Computer_Science_from_the_Bottom_Up.recipe - [Computer Science from the Bottom Up](http://www.bottomupcs.com/index.html)
++ Designing_Evolvable_Web_APIs_with_ASP_NET - [Designing Evolvable Web APIs with ASP.NET](http://chimera.labs.oreilly.com/books/1234000001708)
++ Forecasting_Principles_and_Practice.recipe - [Forecasting Principles and Practice](http://otexts.com/fpp/)
++ Git_Pocket_Guide.recipe - [Git Pocket Guide](http://chimera.labs.oreilly.com/books/1230000000561)
++ High_Performance_Browser_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
 + Introduction_to_Linux.recipe - [Introduction to Linux](http://tldp.org/LDP/intro-linux/html/)
++ Learn_python_the_hard_way.recipe - [Learn Python The Hard Way, 3rd Edition](http://learnpythonthehardway.org/book/)
++ Mastering_Perl.recipe - [Mastering Perl](http://chimera.labs.oreilly.com/books/1234000001527)
++ Programming_JavaScript_Applications.recipe - [Programming JavaScript Applications](http://chimera.labs.oreilly.com/books/1234000000262)
 + Python_Cookbook.recipe - [Python Cookbook](http://chimera.labs.oreilly.com/books/1230000000393)
++ SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
++ Test_Driven_Web_Development_with_Python - [Test-Driven Web Development with Python](http://chimera.labs.oreilly.com/books/1234000000754)
+
+
 
 ## Simplified Chinese
-+ A\_Mathematical\_Theory\_of\_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
-+ AngularJS\_Tutorial\_Cn.recipe - [AngularJS入门教程](http://www.ituring.com.cn/minibook/303)
++ A_Mathematical_Theory_of_Communication.recipe - [通信的数学理论](http://www.ituring.com.cn/minibook/611)
++ AngularJS_Tutorial_Cn.recipe - [AngularJS入门教程](http://www.ituring.com.cn/minibook/303)
 
 # Usage
 
