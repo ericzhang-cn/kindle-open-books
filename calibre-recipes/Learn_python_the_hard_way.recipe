@@ -10,17 +10,12 @@ class LearnPythonTheHardWay(BasicNewsRecipe):
     keep_only_tags = [{'class': 'large-12 columns'}]
 
 
-    def get_title(self, tag):
-        return tag.a.contents[0].strip()
-
-
     def parse_index(self):
         soup = self.index_to_soup(self.url_prefix + 'index.html')
         toc = soup.find('ul', 'simple')
-
         articles = []
         for tag in toc.findAll('li'):
-            title = self.get_title(tag)
+            title = self.tag_to_string(tag)
             url = self.url_prefix + tag.a['href']
             article = {'title': title, 'url': url}
             articles.append(article)
