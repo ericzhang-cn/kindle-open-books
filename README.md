@@ -64,15 +64,26 @@ List of Recipes in `calibre-recipes` Folder
    * Mac OSX - Requires [Command Line Tool] (http://manual.calibre-ebook.com/cli/cli-index.html)。
 
 3. Execute the following command in `calibre-recipes` folder
-   
+
    ```bash
    ebook-convert xxx.recipe xxx.mobi
    ```
 
    For example
-   
+
    ```bash
    ebook-convert AOSABook.recipe AOSABook.mobi
    ```
 
    It will generate `AOSABook.mobi` in the same folder.
+
+# Contributor
+```bash
+authors:
+19   ericzhang               50.0%
+9    lord63                  23.7%
+5    Eric Zhang              13.2%
+3    Sian Lerk Lau           7.9%
+1    ljhero                  2.6%
+1    soooldier               2.6%
+```
