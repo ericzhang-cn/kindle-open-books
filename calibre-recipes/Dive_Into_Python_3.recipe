@@ -3,18 +3,25 @@ from calibre.web.feeds.recipes import BasicNewsRecipe
 class Dive_Into_Python_3(BasicNewsRecipe):
     title = 'Dive_Into_Python_3'
     __author__ = 'lord63'
-    description = '''Dive_Into_Python_3, the book is freely licensed under the 
+    description = '''Dive_Into_Python_3, this book is freely licensed under the 
                      Creative Commons Attribution Share-Alike license'''
     timefmt = '[%Y-%m-%d]'
     no_stylesheets = True
     INDEX = 'http://www.diveintopython3.net/'
-    remove_tags = [{'class': 'v'}, {'class': 'c'}]
-    remove_tags_before = dict(name='h1')
+    remove_tags = [ {'class': 'v'},   # remove the navigation at the bottom of the page
+                    {'class': 'c'},
+                    # the next three things is for the Introduction chapter.
+                    dict(attrs={'start': '-1'}),
+                    dict(name='h2'), 
+                    dict(name='p', attrs={'style': 'float:right;width:245px;text-align:center;margin:0 0 0 1.75em'})]
+    remove_tags_before = dict(name='h1')  # remove the unwanted things at the top of the page
+
 
     def parse_index(self):
         soup = self.index_to_soup(self.INDEX)
         TOC = soup.find('ol', attrs={'start': '-1'})
-        articles = []
+        # To keep the license, so I add this chapter.
+        articles = [{'title': 'Introduction', 'url': self.INDEX}]
         for tag in TOC.findAll('li'):
             title = self.tag_to_string(tag)
             url = self.INDEX + tag.a['href']
