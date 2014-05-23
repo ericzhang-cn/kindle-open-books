@@ -12,6 +12,7 @@ List of Recipes in `calibre-recipes` Folder
 + AOSABook.recipe - [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
 + Computer_Science_from_the_Bottom_Up.recipe - [Computer Science from the Bottom Up](http://www.bottomupcs.com/index.html)
 + Designing_Evolvable_Web_APIs_with_ASP_NET - [Designing Evolvable Web APIs with ASP.NET](http://chimera.labs.oreilly.com/books/1234000001708)
++ Dive_Into_Python_3.recipe - [Dive Into Python 3](http://www.diveintopython3.net/)
 + Forecasting_Principles_and_Practice.recipe - [Forecasting Principles and Practice](http://otexts.com/fpp/)
 + Git_Pocket_Guide.recipe - [Git Pocket Guide](http://chimera.labs.oreilly.com/books/1230000000561)
 + High_Performance_Browser_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
