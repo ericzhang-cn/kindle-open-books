@@ -1,0 +1,24 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Dive_Into_Python_3(BasicNewsRecipe):
+    title = 'Dive_Into_Python_3'
+    __author__ = 'lord63'
+    description = '''Dive_Into_Python_3, the book is freely licensed under the 
+                     Creative Commons Attribution Share-Alike license'''
+    timefmt = '[%Y-%m-%d]'
+    no_stylesheets = True
+    INDEX = 'http://www.diveintopython3.net/'
+    remove_tags = [{'class': 'v'}, {'class': 'c'}]
+    remove_tags_before = dict(name='h1')
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.INDEX)
+        TOC = soup.find('ol', attrs={'start': '-1'})
+        articles = []
+        for tag in TOC.findAll('li'):
+            title = self.tag_to_string(tag)
+            url = self.INDEX + tag.a['href']
+            article = {'title': title, 'url': url}
+            articles.append(article)
+        return [('Dive_Into_Python_3', articles)]
+
