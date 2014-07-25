@@ -1,0 +1,36 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Zero_To_One(BasicNewsRecipe):
+
+    title = 'CS183 Peter Thiel'
+    description = ''
+    cover_url = 'http://zerotoonebook.com/images/bookcover.png'
+
+    url_prefix = 'http://blakemasters.com/peter-thiels-cs183-startup'
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'post-content' }]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + '')
+
+        div = soup.find('div', { 'class': 'post-content' })
+        articles = []
+        for link in div.findAll('a'):
+            if '#' in link['href']:
+                continue
+
+            if not 'blakemasters.tumblr.com' in link['href']:
+                continue
+
+            title = self.get_title(link) 
+            url = link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans
