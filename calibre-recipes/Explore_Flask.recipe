@@ -1,0 +1,31 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Explore_Flask(BasicNewsRecipe):
+
+    title = 'Explore Flask'
+    description = ''
+
+    url_prefix = 'http://exploreflask.com/'
+    no_stylesheets = True
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + 'index.html')
+
+        div = soup.find('div')
+        articles = []
+        for link in div.findAll('a'):
+            if '#' in link['href']:
+                continue
+
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans
