@@ -1,0 +1,27 @@
+from calibre.web.feeds.news import BasicNewsRecipe
+
+class LearnVimscriptTheHardWay(BasicNewsRecipe):
+    title = 'learn_vimscript_the_hard_way'
+    __author__ = 'lord63'
+    description = ('Learn Vimscript the Hard Way is a book for users of the'
+                   'Vim editor who want to learn how to customize Vim.')
+    timefmt = '[%Y-%m-%d]'
+    no_stylesheets = True
+    url_prefix = 'http://learnvimscriptthehardway.stevelosh.com'
+    keep_only_tags = [{'class': 'content fourteen columns offset-by-one'},
+                      {'class': 'fourteen columns offset-by-one'},
+                      {'class': 'content twelve columns offset-by-one'}]
+    remove_tags = [dict(name='section', attrs={'class': 'toc'}),
+                   dict(name='div', attrs={'class': 'prevnext'})]
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix)
+        toc = soup.find('section', 'toc')
+        articles = [{'title': 'Introduction', 'url': self.url_prefix}]
+        for tag in toc.findAll('li'):
+            title = self.tag_to_string(tag)
+            url = self.url_prefix + tag.a['href']
+            article = {'title': title, 'url': url}
+            articles.append(article)
+        ans = [('learn_vimscript_the_hard_way', articles)]
+        return ans
