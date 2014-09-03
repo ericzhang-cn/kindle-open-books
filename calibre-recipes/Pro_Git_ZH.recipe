@@ -1,0 +1,29 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+ 
+class Pro_Git_ZH(BasicNewsRecipe):
+ 
+    title = 'Pro_Git_ZH'
+    description = 'Pro_Git_Chinese'
+    cover_url = 'http://iissnan.com/progit/assets/img/pro-git-cover.jpeg'
+ 
+    url_prefix = 'http://iissnan.com/progit/'
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'col-md-8' }]
+ 
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix)
+ 
+        div = soup.find('ul', { 'class': 'toc' })
+ 
+        articles = []
+        for link in div.findAll('a'):
+
+            til = link.contents[0].strip()
+            url = self.url_prefix +'/'+ link['href']
+            a = { 'title': til, 'url': url }
+ 
+            articles.append(a)
+ 
+        ans = [('Pro_Git_ZH', articles)]
+ 
+        return ans
