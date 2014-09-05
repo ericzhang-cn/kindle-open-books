@@ -79,14 +79,3 @@ List of Recipes in `calibre-recipes` Folder
    ```
 
    It will generate `AOSABook.mobi` in the same folder.
-
-# Contributor
-```bash
-authors:
-19   ericzhang               50.0%
-9    lord63                  23.7%
-5    Eric Zhang              13.2%
-3    Sian Lerk Lau           7.9%
-1    ljhero                  2.6%
-1    soooldier               2.6%
-```
