@@ -66,7 +66,7 @@ List of Recipes in `calibre-recipes` Folder
 
    * Mac OSX - Requires [Command Line Tool] (http://manual.calibre-ebook.com/cli/cli-index.html)。
 
-3. Execute the following command in `calibre-recipes` folder
+2. Execute the following command in `calibre-recipes` folder
 
    ```bash
    ebook-convert xxx.recipe xxx.mobi
