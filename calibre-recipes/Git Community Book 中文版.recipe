@@ -14,22 +14,22 @@ class Git_Pocket_Guide(BasicNewsRecipe):
         return link.contents[0].strip()
      
     def parse_index(self):
-        soup = self.index_to_soup(self.url_prefix + 'index.html')
-         
-        div = soup.find('td')
-         
         articles = []
-        for link in div.findAll('a'):
-         
-            if not '.html' in link['href']:
+
+        soup = self.index_to_soup(self.url_prefix + 'index.html')
+        tag_td = soup.findAll('td')
+        for volume in tag_td:
+            if len(volume.contents) < 3:
                 continue
+
+            for link in volume.findAll('a'): 
+                if not '.html' in link['href']:
+                    continue
+                til = self.get_title(link)
+                url = self.url_prefix + link['href']
+                a = { 'title': til, 'url': url }
          
-            til = self.get_title(link)
-            url = self.url_prefix + link['href']
-            a = { 'title': til, 'url': url }
-         
-            articles.append(a)
-         
+                articles.append(a)
+
         ans = [('Git Community Book 中文版', articles)]
-         
         return ans
