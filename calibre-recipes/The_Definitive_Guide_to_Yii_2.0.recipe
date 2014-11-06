@@ -1,0 +1,79 @@
+#!/usr/bin/env  python
+
+from calibre.web.feeds.recipes import BasicNewsRecipe
+from calibre.ebooks.BeautifulSoup import Tag, NavigableString
+from collections import OrderedDict
+
+
+class Yii_Framework_Guide(BasicNewsRecipe):
+
+    title = 'The Definitive Guide to Yii 2.0'
+    description = 'Yii 2.0 Documentation'
+    cover_url = 'http://static.yiiframework.com/css/img/logo.png'
+    extra_css      = '''
+        pre {
+            border-color: #e0e5ea;
+            border-style: none none none solid;
+            border-width: medium medium medium 5px;
+        }
+
+        blackquote {
+            border-left: 5px solid #eee;
+        }
+
+    '''
+    url_pre = 'http://www.yiiframework.com/doc-2.0/'
+    no_stylesheets = True
+    keep_only_tags = [{ 'role': 'main' }]
+    simultaneous_downloads = 5
+    
+    def parse_index(self):
+        return self.guide_parse_index()
+
+    def guide_parse_index(self):
+
+        soup = self.index_to_soup(self.url_pre + 'guide-index.html')
+        title = 'The Definitive Guide to Yii 2.0'
+        
+        div = soup.find('div', { 'role': 'main' })
+
+        section_title_pattern = '([A-Za-z]*\s*)+'
+        feeds = OrderedDict()
+
+        is_first_section = True
+        section_title = ''
+
+        for item in div.findAll(['h2','li']):
+
+
+            html_tag = item.name
+
+            if html_tag == 'h2':
+                if not is_first_section:
+                    if articles:
+                        if section_title not in feeds:
+                            feeds[section_title] = []
+                        feeds[section_title] += articles
+                else:
+                    is_first_section = False
+                section_title_raw = self.tag_to_string(item)
+                section_title = re.search(section_title_pattern, section_title_raw).group(0).strip()
+                articles = []
+            else:
+                link = item.find('a')
+                if link:
+
+                    page_url = self.url_pre + link['href']
+                    page_title = self.tag_to_string(item)
+                    if 'TBD' in page_title:
+                        continue
+                    articles.append({'title': page_title, 'url': page_url,
+                        'description':'', 'date':''})
+
+        if articles:     
+            if section_title not in feeds:
+                feeds[section_title] = []
+            feeds[section_title] += articles
+
+        ans = [(key, val) for key, val in feeds.iteritems()]
+        return ans
