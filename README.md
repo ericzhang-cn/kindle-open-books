@@ -26,6 +26,7 @@ List of Recipes in `calibre-recipes` Folder
 + Python_Cookbook.recipe - [Python Cookbook](http://chimera.labs.oreilly.com/books/1230000000393)
 + SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
 + Test_Driven_Web_Development_with_Python - [Test-Driven Web Development with Python](http://chimera.labs.oreilly.com/books/1234000000754)
++ Interactive_Data_Visualization_for_the_Web - [Interactive Data Visualization for the Web](http://chimera.labs.oreilly.com/books/1230000000345)
 
 
 
