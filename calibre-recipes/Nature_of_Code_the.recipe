@@ -9,9 +9,6 @@ class Nature_of_Code_the(BasicNewsRecipe):
     no_stylesheets = True
     keep_only_tags = [{ 'id': 'container' }]
 
-    def get_title(self, link):
-        return link.contents[0].strip()
-
     def parse_index(self):
         soup = self.index_to_soup(self.url_prefix + '/book/')
 
@@ -19,7 +16,7 @@ class Nature_of_Code_the(BasicNewsRecipe):
 
         articles = []
         for link in div.findAll('a'):
-            title = self.get_title(link)
+            title = link.contents[0].strip()
             url = self.url_prefix + link['href']
             a = { 'title': title, 'url': url }
             articles.append(a)
