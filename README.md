@@ -16,6 +16,7 @@ List of Recipes in `calibre-recipes` Folder
 + Dive_Into_Python_3.recipe - [Dive Into Python 3](http://www.diveintopython3.net/)
 + Explore_Flask.recipe - [Explore Flask](http://exploreflask.com/)
 + Forecasting_Principles_and_Practice.recipe - [Forecasting Principles and Practice](http://otexts.com/fpp/)
++ Game_Programming_Patterns.recipe - [Game Programming Patterns] (http://gameprogrammingpatterns.com)
 + Git_Pocket_Guide.recipe - [Git Pocket Guide](http://chimera.labs.oreilly.com/books/1230000000561)
 + High_Performance_Browser_Networking.recipe - [High Performance Browser Networking](http://chimera.labs.oreilly.com/books/1230000000545/index.html)
 + Introduction_to_Linux.recipe - [Introduction to Linux](http://tldp.org/LDP/intro-linux/html/)

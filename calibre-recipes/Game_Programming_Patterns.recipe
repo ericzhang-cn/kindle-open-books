@@ -1,0 +1,41 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Game_Programming_Patterns(BasicNewsRecipe):
+
+    title = 'Game Programming Patterns'
+    description = ''
+    cover_url = 'http://1.bp.blogspot.com/-AjFt5OHTuwo/VIFUbzbz0HI/AAAAAAAAOGc/mBKFW9_lFBE/s1600/gpp-splash.jpg'
+    url_prefix = 'http://gameprogrammingpatterns.com/'
+    keep_only_tags = [{ 'class': 'content' }]
+
+
+    def parse_index(self):
+        roman_numbers = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII']
+
+        soup = self.index_to_soup(self.url_prefix + 'contents.html')
+        toc_root = soup.find('ol', { 'type': 'I' })
+
+        articles = []
+        section_index = 1
+        artical_index = 0
+        for link_wrapper in toc_root.findAll('li'):
+            link = link_wrapper.find('a')
+            raw_title = link.contents[0].strip()
+
+            if (link_wrapper.find('strong') and link_wrapper.find('ol')):
+                title = roman_numbers[section_index] + '. ' + raw_title
+                section_index = section_index + 1
+            else:
+                if (artical_index == 0):
+                    title = raw_title
+                else:
+                    title = str(artical_index) + '. ' + raw_title
+                artical_index= artical_index + 1
+
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans
