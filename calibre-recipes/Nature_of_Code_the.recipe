@@ -1,0 +1,34 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Git_Pocket_Guide(BasicNewsRecipe):
+
+    title = 'The Nature of Code'
+    description = ''
+    cover_url = 'http://ecx.images-amazon.com/images/I/51amp%2BlqryL.jpg'
+
+    url_prefix = 'http://natureofcode.com'
+    no_stylesheets = True
+    keep_only_tags = [{ 'id': 'container' }]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + '/book/')
+
+        div = soup.find('div', { 'id': 'toc-list' })
+
+        articles = []
+        for link in div.findAll('a'):
+            if '#' in link['href']:
+                continue
+
+            title = self.get_title(link)
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans

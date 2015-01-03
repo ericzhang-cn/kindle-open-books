@@ -22,6 +22,7 @@ List of Recipes in `calibre-recipes` Folder
 + Learn_Python_the_Hard_Way.recipe - [Learn Python The Hard Way, 3rd Edition](http://learnpythonthehardway.org/book/)
 + Learn_Vimscript_the_Hard_Way.recipe - [Learn Vimscript the Hard Way](http://learnvimscriptthehardway.stevelosh.com/)
 + Mastering_Perl.recipe - [Mastering Perl](http://chimera.labs.oreilly.com/books/1234000001527)
++ Nature_of_Code_the.recipe - [The Nature of Code](http://natureofcode.com/book/)
 + Programming_JavaScript_Applications.recipe - [Programming JavaScript Applications](http://chimera.labs.oreilly.com/books/1234000000262)
 + Python_Cookbook.recipe - [Python Cookbook](http://chimera.labs.oreilly.com/books/1230000000393)
 + SICP.recipe - [Structure and Interpretation of Computer Programs](http://mitpress.mit.edu/sicp/full-text/book/book.html)
