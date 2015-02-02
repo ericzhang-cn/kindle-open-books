@@ -1,0 +1,37 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+ 
+class House_Transcripts(BasicNewsRecipe):
+ 
+    title = 'House Transcripts'
+    description = ''
+    cover_url = 'http://lolsnaps.com/upload_pic/WhatILearnedFromHouseMD-33384.jpeg'
+ 
+    url_prefix = 'http://clinic-duty.livejournal.com/'
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'entryText' }]
+ 
+    def get_title(self, link):
+        return link.contents[0].strip()
+ 
+    def parse_index(self):
+        soup = self.index_to_soup('http://clinic-duty.livejournal.com/12225.html')
+ 
+        div = soup.find('div', { 'class': 'entryText' })
+ 
+        articles = []
+        for link in div.findAll('a'):
+            if 'season' in link['href']:
+                continue
+ 
+            # if not 'ch' in link['href']:
+            #     continue
+ 
+            til = self.get_title(link)
+            url = link['href']
+            a = { 'title': til, 'url': url }
+ 
+            articles.append(a)
+ 
+        ans = [('House_Transcripts', articles)]
+ 
+        return ans
