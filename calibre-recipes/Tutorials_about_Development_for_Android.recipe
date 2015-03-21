@@ -1,0 +1,62 @@
+#!/usr/bin/env  python
+
+from calibre.web.feeds.recipes import BasicNewsRecipe
+from calibre.ebooks.BeautifulSoup import Tag, NavigableString
+from collections import OrderedDict
+
+
+class Tutorials_about_Development_for_Android(BasicNewsRecipe):
+
+    title = 'Tutorials about Development for Android'
+    description = ''
+    extra_css      = '''
+        pre {
+            border-color: #e0e5ea;
+            border-style: none none none solid;
+            border-width: medium medium medium 5px;
+        }
+
+        blackquote {
+            border-left: 5px solid #eee;
+        }
+
+    '''
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'article' }]
+    simultaneous_downloads = 5
+
+    def parse_index(self):
+        return self.guide_parse_index()
+
+    def guide_parse_index(self):
+
+        soup = self.index_to_soup('http://www.vogella.com/tutorials/android.html')
+
+        div = soup.find('div', { 'class': 'tutorialdiv' })
+
+        feeds = OrderedDict()
+
+        container = div.findAll('div', { 'class' : 'tutorialcontainer'})
+
+        for item in container:
+
+            header = item.find('div', { 'class' : 'tutorialheader' })
+
+            section_title = self.tag_to_string(header.h2)
+            feeds[section_title] = []
+            articles = []
+
+            pages = item.find('div', { 'class' : 'tutorialbody' })
+            links = pages.findAll('a')
+            for link in links:
+                page_url = link['href']
+                page_title = self.tag_to_string(link)
+                articles.append({'title': page_title, 'url': page_url,
+                    'description':'', 'date':''})
+
+            feeds[section_title] += articles
+
+        ans = [(key, val) for key, val in feeds.iteritems()]
+        return ans
+
+
