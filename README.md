@@ -87,3 +87,7 @@ List of Recipes in `calibre-recipes` Folder
    ```
 
    It will generate `AOSABook.mobi` in the same folder.
+
+# Contributing
+
+Please read the `CONTRIBUTING` document.
