@@ -1,0 +1,26 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Nature_of_Code_the(BasicNewsRecipe):
+
+    title = 'The Nature of Code'
+    description = ''
+    cover_url = 'http://www.vjsmag.com/wp-content/uploads/2014/06/vjs-magazine-The-Nature-Code-Simulating-Processing.jpg'
+    url_prefix = 'http://natureofcode.com'
+    no_stylesheets = True
+    keep_only_tags = [{ 'id': 'container' }]
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + '/book/')
+
+        div = soup.find('div', { 'id': 'toc-list' })
+
+        articles = []
+        for link in div.findAll('a'):
+            title = link.contents[0].strip()
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans
