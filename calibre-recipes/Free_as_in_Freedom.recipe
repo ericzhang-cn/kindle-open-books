@@ -1,0 +1,38 @@
+import re
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+clean_chapter_title_re = re.compile(r'^.*:\s*')
+
+
+class Free_as_in_Freedom(BasicNewsRecipe):
+
+    title = 'Free as in Freedom'
+    description = 'Richard Stallman\'s Crusade for Free Software'
+    cover_url = 'http://akamaicovers.oreilly.com/images/9780596002879/lrg.jpg'
+
+    url_prefix = 'http://www.oreilly.com/openbook/freedom/'
+    no_stylesheets = True
+    remove_javascript = True
+    remove_empty_feeds = True
+    keep_only_tags = [dict(name = 'blockquote')]
+
+    def get_title(self, link):
+        title = link.contents[0].strip()
+        return clean_chapter_title_re.sub('', title)
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + 'index.html')
+        chapter_list = soup.find('blockquote')
+
+        chapters = []
+        for link in chapter_list.findAll('a'):
+            if not 'ch' in link['href']:
+                continue
+
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            chapters.append(a)
+
+        return [(self.title, chapters)]
