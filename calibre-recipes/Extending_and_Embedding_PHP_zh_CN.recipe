@@ -1,0 +1,34 @@
+from calibre.web.feeds.recipes import BasicNewsRecipe
+
+class Designing_Evolving_Web_APIs_with_ASP_NET(BasicNewsRecipe):
+
+    title = 'Extending and Embedding PHP'
+    description = 'Extending_and_Embedding_PHP_Chinese'
+    cover_url = 'http://img3.douban.com/lpic/s1918674.jpg'
+
+    url_prefix = 'https://github.com/'
+    no_stylesheets = True
+    keep_only_tags = [{ 'class': 'blob instapaper_body' }]
+
+    def get_title(self, link):
+        return link.contents[0].strip()
+
+    def parse_index(self):
+        soup = self.index_to_soup(self.url_prefix + 'walu/phpbook/blob/master/preface.md')
+
+        div = soup.find('div', { 'class': 'blob instapaper_body' })
+
+        articles = []
+        for link in div.findAll('a'):
+            if '#' in link['href']:
+                continue
+
+            title = self.get_title(link) 
+            url = self.url_prefix + link['href']
+            a = { 'title': title, 'url': url }
+
+            articles.append(a)
+
+        ans = [(title, articles)]
+
+        return ans
