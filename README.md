@@ -81,11 +81,25 @@ List of Recipes in `calibre-recipes` Folder
 
 2. Execute the following command in `calibre-recipes` folder
 
+   If you want to generate all books, just run `make`, e.g.
+
    ```bash
-   ebook-convert xxx.recipe xxx.mobi
+   make
+   ```
+
+   Otherwise to generate mobi for a specific book, run
+
+   ```bash
+   make xxx.mobi
    ```
 
    For example
+
+   ```bash
+   make AOSABook.mobi
+   ```
+
+   Internally, this will run
 
    ```bash
    ebook-convert AOSABook.recipe AOSABook.mobi
