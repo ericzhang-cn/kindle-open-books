@@ -44,6 +44,7 @@ List of Recipes in `calibre-recipes` Folder
 + AngularJS_Tutorial_Cn.recipe - [AngularJS入门教程](http://www.ituring.com.cn/minibook/303)
 + Extending_and_Embedding_PHP_zh_CN.recipe - [PHP扩展开发及内核应用](https://github.com/walu/phpbook/blob/master/index.md)
 + Git_Community_Book.recipe - [Git Community Book 中文版](http://gitbook.liuhui998.com/)
++ Learn_Vimscript_the_Hard_Way_Zhcn.recipe - [笨方法学Vimscrpt 简体中文版](http://learnvimscriptthehardway.onefloweroneworld.com/)
 + Pro_Git_ZH.recipe - [Pro Git 简体中文版](http://iissnan.com/progit/)
 
 # Usage
